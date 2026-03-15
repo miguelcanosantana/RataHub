@@ -3,7 +3,7 @@
 
 
 @plugin "daisyui/theme" {
-  name: "caramellatte";
+  name: "caramellatte_custom";
   default: true;
   prefersdark: false;
   color-scheme: "light";
@@ -38,7 +38,7 @@
 }
 
 @plugin "daisyui/theme" {
-  name: "coffee";
+  name: "coffee_custom";
   default: false;
   prefersdark: true;
   color-scheme: "dark";
@@ -71,3 +71,7 @@
   --depth: 1;
   --noise: 0;
 }
+
+	body {
+		background-color: var(--color-base-200);
+	}

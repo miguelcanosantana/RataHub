@@ -1,5 +1,5 @@
 ---
-name: Test Name
+name: Test Name 2
 link: https://example.com
 rating: 5
 shortDesc: This is a test item
