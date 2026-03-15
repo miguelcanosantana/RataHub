@@ -4,19 +4,65 @@ const { item } = Astro.props
 
 ---
 
-<div class="card lg:card-side bg-base-100 shadow-none border-2 border-base-300">
-    <figure>
-        <img
-        src={item.data.image}
-        alt={`Foto del producto: ${item.data.name}`} />
-    </figure>
-    <div class="card-body">
-        <h2 class="card-title">New album is released!</h2>
-        <p>Click the button to listen on Spotiwhy app.</p>
-      <div class="card-actions justify-end">
-        <button class="btn btn-neutral">Comprar</button>
-      </div>
+<div class="card bg-base-100 shadow-none border-2 border-base-300">
+
+
+    <div class="grid grid-cols-1 md:grid-cols-2">
+
+        <!-- Left content -->
+        <div>   
+
+            <div class="card-body">
+                <h2 class="card-title">{item.data.name}</h2>
+            </div>
+            <figure class="pl-2 pr-2 rounded">
+            <img class="rounded-2xl" src={item.data.image} alt={`Foto del producto: ${item.data.name}`} />
+            </figure>
+        </div>
+
+        <!-- Right content -->
+        <div>   
+            <div class="card-body">
+
+                <div class="rating gap-2 pointer-events-none">
+                {[1, 2, 3, 4, 5].map((num) => (
+                    <input
+                        type="radio"
+                        name={`rating-${item.id}`}
+                        class={`mask mask-heart ${
+                        num <= item.data.rating 
+                            ? (num === 1 ? 'bg-red-400' : 
+                            num === 2 ? 'bg-orange-400' : 
+                            num === 3 ? 'bg-yellow-400' : 
+                            num === 4 ? 'bg-lime-400' : 'bg-green-400')
+                            : 'bg-base-300 opacity-50' 
+                        }`}
+                        aria-label={`${num} star`}
+                        checked={num == item.data.rating}
+                        readonly
+                    />
+                    ))}
+                </div>
+
+                <p>{item.content}</p>
+
+                <div class="card-actions justify-end">
+                    <button class="btn btn-neutral">Comprar</button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
     </div>
+
+
+
 </div>
+
+
+
 
   

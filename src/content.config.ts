@@ -5,15 +5,15 @@ import { z } from 'astro/zod';
 // Collections
 const items = defineCollection({
   loader: glob({ base: './src/content/items', pattern: '**/*.{md,mdx}' }),
-
   schema: z.object({
 
     //Campos del .md
     name: z.string(),
     rating: z.number().min(1).max(5).optional(),
-    shortDesc: z.string(),
     image: z.string(),
     link: z.url(),
+    good: z.array(z.string()).default([]).optional(),
+    bad: z.array(z.string()).default([]).optional(),
   }),
 });
 
