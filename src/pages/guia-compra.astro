@@ -18,7 +18,7 @@ const items = await getCollection('items');
 		.filter((i: any) => i.data.rating >= 3)
 		.sort((a: any, b: any) => b.data.rating - a.data.rating)
 		.map((i: any) => (
-			<ItemMiniature item={i}></ItemMiniature>
+			<ItemMiniature item={i} toBuy={true}></ItemMiniature>
 		))}
 	</div>
 
@@ -32,7 +32,7 @@ const items = await getCollection('items');
 		.filter((i: any) => i.data.rating < 3)
 		.sort((a: any, b: any) => b.data.rating - a.data.rating)
 		.map((i: any) => (
-			<ItemMiniature item={i}></ItemMiniature>
+			<ItemMiniature item={i} toBuy={false}></ItemMiniature>
 		))}
 	</div>
 

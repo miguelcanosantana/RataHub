@@ -1,6 +1,8 @@
 ---
-
-const { item } = Astro.props
+import { render } from 'astro:content';
+const { item } = Astro.props;
+const { toBuy } = Astro.props;
+const { Content } = await render(item);
 
 ---
 
@@ -44,11 +46,47 @@ const { item } = Astro.props
                     ))}
                 </div>
 
-                <p>{item.content}</p>
-
-                <div class="card-actions justify-end">
-                    <button class="btn btn-neutral">Comprar</button>
+                <div class="markdown"> 
+                    <Content/>
                 </div>
+
+                <!-- Pros and cons -->
+                <div class="grid grid-cols-2 md:grid-cols-2">
+
+                    <div>
+                        {item.data.pros && item.data.pros.length > 0 && (
+                            <div class="mb-2">
+                                <span class="text-xs font-bold text-success uppercase">Pros</span>
+                                {item.data.pros.map((pro: string) => (
+                                    <p class="text-sm flex items-start gap-1">
+                                        <span class="text-success">✓</span> {pro}
+                                    </p>
+                                ))}
+                            </div>
+                        )}
+
+                    </div>
+
+                    <div>
+                        {item.data.cons && item.data.cons.length > 0 && (
+                            <div class="mb-2">
+                                <span class="text-xs font-bold text-error uppercase">Contras</span>
+                                {item.data.cons.map((con: string) => (
+                                    <p class="text-sm flex items-start gap-1">
+                                        <span class="text-error">✗</span> {con}
+                                    </p>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                </div>
+
+                {toBuy == true && (
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-neutral">Comprar</button>
+                    </div>
+                )}
 
             </div>
 

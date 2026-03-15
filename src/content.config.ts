@@ -12,8 +12,9 @@ const items = defineCollection({
     rating: z.number().min(1).max(5).optional(),
     image: z.string(),
     link: z.url(),
-    good: z.array(z.string()).default([]).optional(),
-    bad: z.array(z.string()).default([]).optional(),
+    description: z.string().optional(),
+    pros: z.array(z.string()).default([]).optional(),
+    cons: z.array(z.string()).default([]).optional(),
   }),
 });
 
