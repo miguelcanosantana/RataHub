@@ -10,8 +10,10 @@ const items = defineCollection({
 
     //Campos del .md
     name: z.string(),
+    rating: z.number().min(1).max(5).optional(),
+    shortDesc: z.string(),
+    image: z.string(),
     link: z.url(),
-    rating: z.number().min(1).max(5)
   }),
 });
 
