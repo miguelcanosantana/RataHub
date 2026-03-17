@@ -1,5 +1,6 @@
 ---
 import { render } from 'astro:content';
+const base = import.meta.env.BASE_URL;
 const { item } = Astro.props;
 const { toBuy } = Astro.props;
 const { Content } = await render(item);
@@ -18,7 +19,7 @@ const { Content } = await render(item);
                 <h2 class="card-title">{item.data.name}</h2>
             </div>
             <figure class="pl-2 pr-2 rounded">
-            <img class="rounded-2xl" src={item.data.image} alt={`Foto del producto: ${item.data.name}`} />
+            <img class="rounded-2xl" src={base + item.data.image} alt={`Foto del producto: ${item.data.name}`} />
             </figure>
         </div>
 
