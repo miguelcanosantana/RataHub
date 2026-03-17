@@ -7,4 +7,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: 'https://miguelcanosantana.github.io',
+  base: '/RataHub/',
 });
