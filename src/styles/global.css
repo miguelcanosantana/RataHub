@@ -109,9 +109,3 @@
     @apply text-primary underline transition-opacity hover:opacity-80;
   }
 }
-
-/* Use the theme variables directly for the body */
-body {
-  background-color: var(--color-base-200);
-  color: var(--color-base-content);
-}
