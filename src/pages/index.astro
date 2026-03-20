@@ -4,21 +4,31 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
 
-<div class="flex items-end justify-center p-8 bg-cover bg-center relative" 
-     style="min-height: calc(100dvh - var(--navbar-height)); background-image: url(https://cdn.pixabay.com/photo/2016/05/10/15/39/rat-1383998_1280.jpg); filter: brightness(0.85) saturate(0.7);">
-    
-    <div class="bg-base-200/90 p-6 rounded-3xl text-base-content mb-4 max-w-2xl">
-        <h1 class="text-3xl font-bold mb-4">Todo sobre tus ratitas</h1>
-        <p class="text-lg leading-relaxed">En este sitio encontrarás las mejores recomendaciones de productos en España para el cuidado de tus ratitas.
-        <br>También qué tener en cuenta si eres primerizo con ellas 🧑🏽❤️🐀</p>
+    <!-- Hero -->
+    <div class="flex items-end justify-center bg-cover bg-center relative" 
+        style="min-height: calc(100dvh - var(--navbar-height)); background-image: url(https://cdn.pixabay.com/photo/2016/05/10/15/39/rat-1383998_1280.jpg); filter: brightness(0.85) saturate(0.85);">
+        
+        <div class="bg-base-200/90 p-6 rounded-3xl text-base-content mb-4 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4">Todo sobre tus ratitas</h1>
+            <p class="text-lg leading-relaxed">En este sitio encontrarás las mejores recomendaciones de productos en España para el cuidado de tus ratitas.
+            <br>También qué tener en cuenta si eres primerizo con ellas 🧑🏽❤️🐀</p>
 
-        <div class="mt-4 mx-4 flex gap-2 justify-center">
-            <button class="btn btn-secondary">Introducción</button>
-            <button class="btn btn-primary">Explorar Categorías</button>
+            <div class="mt-4 mx-4 flex gap-2 justify-center">
+                <a class="btn btn-secondary" href="#intro">Introducción</a>
+                <a class="btn btn-primary" href="#categorias">Explorar Categorías</a>
+            </div>
+
         </div>
-
     </div>
 
-</div>
+    <!-- Intro -->
+    <div id="intro" style="min-height: calc(100dvh - var(--navbar-height));">
+        
+    </div>
+
+    <!-- Categorías -->
+    <div id="categorias" style="min-height: calc(100dvh - var(--navbar-height));">
+        
+    </div>
 
 </Layout>
