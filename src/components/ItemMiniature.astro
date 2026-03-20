@@ -5,101 +5,111 @@ const { item } = Astro.props;
 const { toBuy } = Astro.props;
 const { Content } = await render(item);
 
+// Detect if an item has a full review content
+const hasContent = item.body && item.body.trim().length > 0;
+
 ---
 
-<div class="card bg-base-100 shadow-none border-2 border-base-300">
+<a href={`${base}item-reviews/${item.id}`}>
+    
+    <div class="card bg-base-100 shadow-none border-2 border-base-300">
 
+        <div class="grid grid-cols-1 md:grid-cols-2">
 
-    <div class="grid grid-cols-1 md:grid-cols-2">
+            <!-- Left content -->
+            <div>   
 
-        <!-- Left content -->
-        <div>   
-
-            <div class="card-body">
-                <h2 class="card-title">{item.data.name}</h2>
-            </div>
-            <figure class="pl-2 pr-2 rounded">
-            <img class="rounded-2xl" src={base + item.data.image} alt={`Foto del producto: ${item.data.name}`} />
-            </figure>
-        </div>
-
-        <!-- Right content -->
-        <div>   
-            <div class="card-body">
-
-                <div class="rating gap-2 pointer-events-none">
-                {[1, 2, 3, 4, 5].map((num) => (
-                    <input
-                        type="radio"
-                        name={`rating-${item.id}`}
-                        class={`mask mask-heart ${
-                        num <= item.data.rating 
-                            ? (num === 1 ? 'bg-red-400' : 
-                            num === 2 ? 'bg-orange-400' : 
-                            num === 3 ? 'bg-yellow-400' : 
-                            num === 4 ? 'bg-lime-400' : 'bg-green-400')
-                            : 'bg-base-300 opacity-50' 
-                        }`}
-                        aria-label={`${num} star`}
-                        checked={num == item.data.rating}
-                        readonly
-                    />
-                    ))}
+                <div class="card-body">
+                    <h2 class="card-title">{item.data.name}</h2>
                 </div>
+                <figure class="pl-2 pr-2 rounded">
+                <img class="rounded-2xl" src={`${base}${item.data.image.replace(/^\//, '')}`} alt={`Foto del producto: ${item.data.name}`} />
+                </figure>
 
-                <div class="markdown"> 
-                    <Content/>
-                </div>
-
-                <!-- Pros and cons -->
-                <div class="grid grid-cols-2 md:grid-cols-2">
-
-                    <div>
-                        {item.data.pros && item.data.pros.length > 0 && (
-                            <div class="mb-2">
-                                <span class="text-xs font-bold text-success uppercase">Pros</span>
-                                {item.data.pros.map((pro: string) => (
-                                    <p class="text-sm flex items-start gap-1">
-                                        <span class="text-success">✓</span> {pro}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-
-                    </div>
-
-                    <div>
-                        {item.data.cons && item.data.cons.length > 0 && (
-                            <div class="mb-2">
-                                <span class="text-xs font-bold text-error uppercase">Contras</span>
-                                {item.data.cons.map((con: string) => (
-                                    <p class="text-sm flex items-start gap-1">
-                                        <span class="text-error">✗</span> {con}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-
-                </div>
-
-                {toBuy == true && (
+                {hasContent == true && (
                     <div class="card-actions justify-end">
-                        <button class="btn btn-neutral">Comprar</button>
+                        <button class="btn btn-neutral">Ver Review Completa</button>
                     </div>
                 )}
 
             </div>
+
+            <!-- Right content -->
+            <div>   
+                <div class="card-body">
+
+                    <div class="rating gap-2 pointer-events-none">
+                    {[1, 2, 3, 4, 5].map((num) => (
+                        <input
+                            type="radio"
+                            name={`rating-${item.id}`}
+                            class={`mask mask-heart ${
+                            num <= item.data.rating 
+                                ? (num === 1 ? 'bg-red-400' : 
+                                num === 2 ? 'bg-orange-400' : 
+                                num === 3 ? 'bg-yellow-400' : 
+                                num === 4 ? 'bg-lime-400' : 'bg-green-400')
+                                : 'bg-base-300 opacity-50' 
+                            }`}
+                            aria-label={`${num} star`}
+                            checked={num == item.data.rating}
+                            readonly
+                        />
+                        ))}
+                    </div>
+
+                    <!-- Pros and cons -->
+                    <div class="grid grid-cols-2 md:grid-cols-2">
+
+                        <div>
+                            {item.data.pros && item.data.pros.length > 0 && (
+                                <div class="mb-2">
+                                    <span class="text-xs font-bold text-success uppercase">Pros</span>
+                                    {item.data.pros.map((pro: string) => (
+                                        <p class="text-sm flex items-start gap-1">
+                                            <span class="text-success">✓</span> {pro}
+                                        </p>
+                                    ))}
+                                </div>
+                            )}
+
+                        </div>
+
+                        <div>
+                            {item.data.cons && item.data.cons.length > 0 && (
+                                <div class="mb-2">
+                                    <span class="text-xs font-bold text-error uppercase">Contras</span>
+                                    {item.data.cons.map((con: string) => (
+                                        <p class="text-sm flex items-start gap-1">
+                                            <span class="text-error">✗</span> {con}
+                                        </p>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                    </div>
+
+                    {toBuy == true && (
+                        <div class="card-actions justify-end">
+                            <button class="btn btn-neutral">Comprar</button>
+                        </div>
+                    )}
+
+                </div>
+
+            </div>
+
+
 
         </div>
 
 
 
     </div>
+</a>
 
 
-
-</div>
 
 
 

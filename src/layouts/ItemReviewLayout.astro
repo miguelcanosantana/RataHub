@@ -1,0 +1,25 @@
+---
+
+import { render } from 'astro:content';
+import Layout from './Layout.astro';
+const base = import.meta.env.BASE_URL;
+const { item } = Astro.props;
+const { toBuy } = Astro.props;
+const { Content } = await render(item);
+
+---
+
+<Layout>
+
+    <article>
+        <h1>{item.data.name}</h1>
+
+        <div class="markdown">
+            <Content />
+        </div>
+
+        <hr/>
+        <a href={`${base}guia-compra/`}>← Volver a la Guía</a>
+    </article>
+
+</Layout>

@@ -1,0 +1,19 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ItemReviewLayout from '../../layouts/ItemReviewLayout.astro';
+
+export async function getStaticPaths() {
+  const allItems = await getCollection('items');
+  
+  return allItems.map(item => ({
+    params: { slug: item.id }, // Glob Loader already gives id, which is the path of the file
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+---
+
+<ItemReviewLayout item={item}>
+</ItemReviewLayout>
