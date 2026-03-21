@@ -28,7 +28,7 @@ const items = await getCollection('items');
   		✗ NO Comprar 
 	</h1>
 
-	<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 m-4 sm:m-6 md:m-12 lg:m-16 xl:m-22">
+	<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 m-4 sm:m-6 md:m-12 lg:m-16 xl:m-22">
 		{items
 		.filter((i: any) => i.data.rating < 3)
 		.sort((a: any, b: any) => b.data.rating - a.data.rating)
