@@ -19,4 +19,4 @@ links:
 
 Fue el primer sustrato que adquirí, le producía muchos estornudos a una de mis ratitas, Cascabel. Investigué sobre el tema y encontré posts [como este](https://www.reddit.com/r/RATS/comments/u8pekt/so_my_mom_bought_me_this_bedding_for_my_rats_and/).
 
-El pino y las maderas blancas son malas para el sistema respiratorio de las ratas, otros roedores lo toleran mejor, pero las ratas toleran especialmente mal los fenoles que sueltan estos productos
+El pino y las maderas blancas son malas para el sistema respiratorio de las ratas, otros roedores lo toleran mejor, pero las ratas toleran especialmente mal los fenoles que sueltan estos productos.
