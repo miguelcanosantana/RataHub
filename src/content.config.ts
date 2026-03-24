@@ -12,7 +12,7 @@ const items = defineCollection({
     rating: z.number().min(1).max(5).optional(),
     image: z.string(),
     links: z.array(z.object({
-      url: z.string().url(),
+      url: z.url(),
       label: z.string(),
     })).default([]).optional(),
     description: z.string().optional(),
