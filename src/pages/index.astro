@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout>
@@ -27,8 +28,23 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <!-- Categorías -->
-    <div id="categorias" style="min-height: calc(100dvh - var(--navbar-height));">
-        
+    <div id="categorias" class="w-full flex flex-col" style="min-height: calc(100dvh - var(--navbar-height));">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-6 p-8 flex-1">
+
+            <a href={`${base}guia-compra/`} class="bg-primary text-primary-content flex items-center justify-center rounded-4xl p-8 text-center shadow-lg hover:scale-[1.01] transition-transform border-4 border-transparent">
+                <p class="text-4xl md:text-6xl font-bold leading-tight">Guía de compra</p>
+            </a>
+
+            <div class="bg-base-200 text-base-content/30 flex items-center justify-center rounded-4xl p-8 text-center border-4 border-dashed border-base-300">
+                <p class="text-4xl md:text-5xl font-bold uppercase tracking-widest">En desarrollo</p>
+            </div>
+
+            <div class="bg-base-200 text-base-content/30 flex items-center justify-center rounded-4xl p-8 text-center border-4 border-dashed border-base-300 md:col-span-2">
+                <p class="text-4xl md:text-5xl font-bold uppercase tracking-widest">En desarrollo</p>
+            </div>
+            
+        </div>
     </div>
 
 </Layout>
