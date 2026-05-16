@@ -93,7 +93,7 @@ function getCategory(): string {
                     </div>
 
                     {hasContent == true && (
-                        <div class="card-actions">
+                        <div class="w-full mt-2">
                             <a href={`${base}item-reviews/${item.id}`} class="btn btn-neutral">Ver Review Completa</a>
                         </div>
                     )}
@@ -101,7 +101,7 @@ function getCategory(): string {
                     <!-- Where to buy section -->
                     {toBuy == true && item.data.links && item.data.links.length > 0 && (
 
-                        <p>Disponible en:</p>
+                        <p class="w-full mt-2 mb-1">Disponible en:</p>
 
                         <ul class="menu bg-base-200 rounded-box w-full">
                             {item.data.links.map((link: any) => (
