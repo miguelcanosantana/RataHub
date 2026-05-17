@@ -71,15 +71,19 @@ function getCategory(): string {
                     </div>
 
                     <div>
-                        {item.data.cons && item.data.cons.length > 0 && (
+
+                        {item.data.cons && item.data.cons.length > 0 ? (
                             <div class="mb-2">
                                 <span class="text-xs font-bold text-error uppercase">Contras</span>
+
                                 {item.data.cons.map((con: string) => (
                                     <p class="text-sm flex items-start gap-1">
                                         <span class="text-error">✗</span> {con}
                                     </p>
                                 ))}
                             </div>
+                        ) : (
+                            <p class="text-xs font-bold text-error uppercase mb-2">Sin contras</p>
                         )}
                     </div>
 
