@@ -14,6 +14,30 @@ const items = await getCollection('items');
   		✓ Qué Comprar 
 	</h1>
 
+	<!-- Search bar -->
+	<div class="text-center">
+		
+		<label class="input">
+			<svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				<g stroke-linejoin="round" stroke-linecap="round" stroke-width="3" fill="none" stroke="currentColor">
+					<circle cx="11" cy="11" r="8"></circle>
+					<path d="m21 21-4.3-4.3"></path>
+				</g>
+			</svg>
+			<input type="search" required placeholder="Búsqueda de poductos..." />
+		</label>
+
+		<form class="filter">
+			<input class="btn btn-square" type="reset" value="×"/>
+			<input class="btn" type="radio" name="frameworks" aria-label="Svelte"/>
+			<input class="btn" type="radio" name="frameworks" aria-label="Vue"/>
+			<input class="btn" type="radio" name="frameworks" aria-label="React"/>
+		</form>
+
+	</div>
+
+
+
 	<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 m-4 sm:m-6 md:m-12 lg:m-16 xl:m-22">
 		{items
 		.filter((i: any) => i.data.rating >= 3)
